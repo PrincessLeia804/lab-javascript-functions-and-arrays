@@ -1,24 +1,77 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+  if (number1 > number2) {
+    return number1;
+  }else if (number2 > number1) {
+    return number2;
+  }else{
+    return number1,number2;
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(wordArray) {
+  if (!wordArray.length) return null;
+
+  let longestWord = '';
+
+  wordArray.forEach(function(word){
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    } 
+  }); 
+  return longestWord;
+};
+console.log(findLongestWord(words));
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbersArray) {
+  
+  let sum = 0;
+
+  numbersArray.forEach(function (number){
+    sum += number;
+  });
+  return sum;
+}
 
 
+
+/*The function should take an array of mixed values - numbers, strings, and booleans. 
+The function should add all the string lengths, numeric values, and numeric values of booleans to the total sum and return the sum*/
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArray) {
+  let sum = 0;
+
+  for (let i = 0; i < mixedArray.length; i++){
+    // check for string  
+    if(typeof mixedArray[i] === "string"){
+        sum += mixedArray[i].length;
+
+        // check for booleans
+    } else if(mixedArray[i] === true){
+      sum += 1;
+
+        // check for numbers
+    } else if (typeof mixedArray[i] === "number"){
+      sum += mixedArray[i];
+    }
+    else if (typeof mixedArray[i] === "object" || typeof mixedArray[i] === "array"){
+      throw(new Error("Unsupported data type sir or ma'am"));
+    }
+  }
+  return sum;
+}
 
 
 
@@ -26,16 +79,56 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvgArray) {
+  // check for an empty array  
+  if (!numbersAvgArray.length) return null;
+  
+  //sum up array
+  let sum = 0;
 
+  numbersAvgArray.forEach(function (number){
+    sum += number;
+  });
+  // calculate average
+  return sum /= numbersAvgArray.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArray) { 
+  if (!wordsArray.length) return null;
+
+  let sumOfChar = 0;
+
+  wordsArray.forEach(function (word) {
+    sumOfChar += word.length;
+  })
+  return sumOfChar /= wordsArray.length
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArray) {
+  if(!mixedArray.length) return null;
+  
+  let sum = 0;
+
+  for (let i = 0; i < mixedArray.length; i++){
+      // check for string  
+    if(typeof mixedArray[i] === "string"){
+        sum += mixedArray[i].length;
+
+        // check for booleans
+    } else if(mixedArray[i] === true){
+      sum += 1;
+
+        // check for numbers
+    } else if (typeof mixedArray[i] === "number"){
+      sum += mixedArray[i];
+    }
+  }
+  return sum /= mixedArray.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,15 +145,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+  function uniquifyArray(listArray) {
+    if(!listArray.length) return null;
+  
+    const uniqueArray = [];
+  
+    listArray.forEach(function(word) {
+      console.log(word, uniqueArray);
+      if (uniqueArray.includes(word) !== true) {
+        uniqueArray.push(word);
+      } 
+    });
+  
+    return uniqueArray;
+  }
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(word, wordsArray) {
+  if(!wordsArray.length) return null;
 
+  if (wordsArray.indexOf(word) !== -1 && wordsArray.indexOf(word) === wordsArray.lastIndexOf(word)){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 // Iteration #7: Count repetition
