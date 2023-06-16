@@ -90,7 +90,7 @@ function averageNumbers(numbersAvgArray) {
     sum += number;
   });
   // calculate average
-  return sum /= numbersAvgArray.length;
+  return sum / numbersAvgArray.length;
 }
 
 // Level 2: Array of strings
@@ -127,7 +127,7 @@ function avg(mixedArray) {
       sum += mixedArray[i];
     }
   }
-  return sum /= mixedArray.length;
+  return sum / mixedArray.length;
 }
 
 // Iteration #5: Unique arrays
@@ -165,14 +165,16 @@ const wordsUnique = [
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(word, wordsArray) {
+function doesWordExist(wordsArray, word) {
   if(!wordsArray.length) return null;
 
-  if (wordsArray.indexOf(word) !== -1 && wordsArray.indexOf(word) === wordsArray.lastIndexOf(word)){
-    return true;
-  } else {
-    return false;
-  }
+  return wordsArray.includes(word);
+
+  // if (wordsArray.indexOf(word) !== -1 || (wordsArray.indexOf(word) !== -1 && wordsArray.indexOf(word) === wordsArray.lastIndexOf(word))){
+  //   return true;
+  // } else {
+  //   return false;
+  // }
 }
 
 
